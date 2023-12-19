@@ -3,21 +3,25 @@ import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
   final String fileName;
-  const HomePage(this.fileName, {super.key});
+  final int id;
+  const HomePage(this.fileName, this.id, {super.key});
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
   bool isPlaying = false;
-  final assetsAudioPlayer = AssetsAudioPlayer();
+
+  late AssetsAudioPlayer assetsAudioPlayer;
 
   @override
   void initState() {
+    assetsAudioPlayer = AssetsAudioPlayer.withId(widget.id.toString());
     assetsAudioPlayer.open(
-      Playlist(audios: [
-        Audio("sounds/${widget.fileName}.mp3"),]),
-      autoStart: false);
+        Playlist(audios: [
+          Audio("sounds/${widget.fileName}.mp3"),
+        ]),
+        autoStart: false);
     audiListenerTrigger();
     super.initState();
   }
@@ -25,10 +29,9 @@ class _HomePageState extends State<HomePage> {
 // if (event ==true) ==if (event)
 // if (event ==false) ==if (!event)
 
-
   void audiListenerTrigger() {
     assetsAudioPlayer.playlistAudioFinished.listen((event) {
-   // if (event){} //TODO amaba3amalhaa betal3a error
+      // if (event){} //TODO amaba3amalhaa betal3a error
       isPlaying = false;
       setState(() {});
     });
@@ -40,7 +43,7 @@ class _HomePageState extends State<HomePage> {
       padding: const EdgeInsets.all(8.0),
       child: ListTile(
         tileColor: Colors.blue[200],
-        title:  Text(widget.fileName),
+        title: Text(widget.fileName),
         trailing: IconButton(
             onPressed: () {
               if (assetsAudioPlayer.isPlaying.value) {
@@ -54,4 +57,6 @@ class _HomePageState extends State<HomePage> {
             },
             icon: (isPlaying) ? Icon(Icons.pause) : Icon(Icons.play_arrow)),
       ),
-    );}}
+    );
+  }
+}
