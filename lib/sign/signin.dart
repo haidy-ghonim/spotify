@@ -139,7 +139,7 @@ class _SignInState extends State<SignIn> {
                           onTap: () async {
                             //if successfully logged in (creds are correct)
                             var sharedPref =
-                                await SharedPreferences.getInstance();
+                            await SharedPreferences.getInstance();
                             sharedPref.setBool(MyAppState.KEYSignIn, true);
                             Navigator.pushReplacement(
                                 context,

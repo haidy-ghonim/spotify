@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:spotify/sign/signin.dart';
 import 'package:spotify/sign/signup.dart';
@@ -22,7 +21,7 @@ class MyAppState extends State<MyApp> {
   @override
   void initState(){
     super.initState();
-  //   whereToGo();
+    //   whereToGo();
   }
 
 
@@ -50,13 +49,10 @@ class MyAppState extends State<MyApp> {
           Navigator.pushReplacement(context,
               MaterialPageRoute(builder: (context) => const SignUp(),));
         }
-        }else{
+      }else{
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>const SignUp(),));
       }
     },
     );
   }
 }
-
-
-

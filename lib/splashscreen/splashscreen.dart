@@ -18,8 +18,8 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(const Duration(seconds: 6), () {
       Navigator.pushReplacementNamed(context,SignIn.signin);
-        }
-        );
+    }
+    );
   }
   @override
   Widget build(BuildContext context) {
@@ -36,4 +36,3 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 }
-

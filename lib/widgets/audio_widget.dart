@@ -1,14 +1,14 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 
-class AudioWidgetEx extends StatefulWidget {
+class HomePage extends StatefulWidget {
   final String fileName;
-  const AudioWidgetEx(this.fileName,{super.key});
+  const HomePage(this.fileName, {super.key});
   @override
-  State<AudioWidgetEx> createState() => _AudioWidgetExState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _AudioWidgetExState extends State<AudioWidgetEx> {
+class _HomePageState extends State<HomePage> {
   bool isPlaying = false;
   final assetsAudioPlayer = AssetsAudioPlayer();
 
@@ -16,10 +16,8 @@ class _AudioWidgetExState extends State<AudioWidgetEx> {
   void initState() {
     assetsAudioPlayer.open(
       Playlist(audios: [
-        Audio("sounds/${widget.fileName}.mp3"),
-      ]),
-      autoStart: false,
-    );
+        Audio("sounds/${widget.fileName}.mp3"),]),
+      autoStart: false);
     audiListenerTrigger();
     super.initState();
   }
@@ -27,49 +25,35 @@ class _AudioWidgetExState extends State<AudioWidgetEx> {
 // if (event ==true) ==if (event)
 // if (event ==false) ==if (!event)
 
+
   void audiListenerTrigger() {
     assetsAudioPlayer.playlistAudioFinished.listen((event) {
-      if (event) {
-        isPlaying = false;
-        setState(() {});
-      }
+   // if (event){} //TODO amaba3amalhaa betal3a error
+      isPlaying = false;
+      setState(() {});
     });
-  }
+  } //audiListenerTrigger
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
+    return Padding(
       padding: const EdgeInsets.all(8.0),
       child: ListTile(
-       tileColor: Colors.blue[200],
-       title: const Text('sample 1'),
-       trailing: IconButton(
-        onPressed: () {
-          if (assetsAudioPlayer.isPlaying.value) {
-            assetsAudioPlayer.pause();
-          } else {
-            assetsAudioPlayer.play();
-          }
-          setState(() {
-            isPlaying = !isPlaying;
-          });
-        },
-        icon:
-        (isPlaying) ? Icon(Icons.pause) : Icon(Icons.play_arrow)),
-  ),
-);
-
-
-
-
-
-
-
-
-
-
-
-
+        tileColor: Colors.blue[200],
+        title:  Text(widget.fileName),
+        trailing: IconButton(
+            onPressed: () {
+              if (assetsAudioPlayer.isPlaying.value) {
+                assetsAudioPlayer.pause();
+              } else {
+                assetsAudioPlayer.play();
+              }
+              setState(() {
+                isPlaying = !isPlaying;
+              });
+            },
+            icon: (isPlaying) ? Icon(Icons.pause) : Icon(Icons.play_arrow)),
+      ),
+    );
   }
 }
-

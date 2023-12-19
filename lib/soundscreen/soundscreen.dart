@@ -1,3 +1,5 @@
+//awal wa7da 3amatahaa
+
 import 'package:flutter/material.dart';
 import 'package:spotify/widgets/audio_widget.dart';
 
@@ -27,11 +29,12 @@ class MyScreenPage extends StatefulWidget {
 }
 
 class _MyScreenPageState extends State<MyScreenPage> {
+  //batsama 3alsha ya3eyab type of list
   var fileNames = [
     "city-lights",
-    " leaving-earth ",
-    " sands-of-alba ",
-    " tomorrow",
+    "leaving-earth",
+    "sands-of-alba",
+    "tomorrow",
   ];
   @override
   Widget build(BuildContext context) {
@@ -48,17 +51,16 @@ class _MyScreenPageState extends State<MyScreenPage> {
         title: Text(widget.title),
         actions: <Widget>[
           IconButton(
-              onPressed: () => {}, icon: const Icon(Icons.favorite_sharp)),
+              onPressed: () => {}, icon:  const Icon(Icons.favorite_sharp)),
           IconButton(
-              onPressed: () {}, icon: const Icon(Icons.notification_add_sharp)),
+              onPressed: () {}, icon:  const Icon(Icons.notification_add_sharp)),
         ],
       ),
       body: ListView.builder(
         itemCount: fileNames.length,
-        itemBuilder: ( context, index) {
-          return AudioWidgetEx(fileNames[index],);
+        itemBuilder: (context, index) {
+          return HomePage(fileNames[index],);
         },
-
       ),
     );
   }
