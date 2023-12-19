@@ -59,7 +59,7 @@ class _MyScreenPageState extends State<MyScreenPage> {
       body: ListView.builder(
         itemCount: fileNames.length,
         itemBuilder: (context, index) {
-          return HomePage(fileNames[index],index);
+          return HomePage(fileNames[index],index,fileNames.length);
         },
       ),
     );}}

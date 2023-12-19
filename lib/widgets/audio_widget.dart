@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 class HomePage extends StatefulWidget {
   final String fileName;
   final int id;
-  const HomePage(this.fileName, this.id, {super.key});
+  final int length;
+  const HomePage(this.fileName, this.id, this.length, {super.key});
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -49,6 +50,15 @@ class _HomePageState extends State<HomePage> {
               if (assetsAudioPlayer.isPlaying.value) {
                 assetsAudioPlayer.pause();
               } else {
+                // ama yamal play ywafa el bakaa w men el start and end
+                for (var i = 0; i < widget.length; i++) {
+                  var closedAssetAudioPlayer =
+                      AssetsAudioPlayer.withId(i.toString());
+                  if (closedAssetAudioPlayer.isPlaying.value) {
+                    closedAssetAudioPlayer.stop();
+                  }
+                }
+                //****
                 assetsAudioPlayer.play();
               }
               setState(() {
