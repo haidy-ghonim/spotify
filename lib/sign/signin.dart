@@ -81,7 +81,7 @@ class _SignInState extends State<SignIn> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const SoundScreen(), //task screen
+              builder: (context) => const SignUp(), //task screen
             ),
           );
         },
@@ -144,7 +144,7 @@ class _SignInState extends State<SignIn> {
                             Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const SignUp()));
+                                    builder: (context) => const SoundScreen()));
                           },
                           child: const Text(
                             'Create account',
@@ -188,6 +188,4 @@ class _SignInState extends State<SignIn> {
           ),
         ),
       ),
-    );
-  }
-}
+    );}}

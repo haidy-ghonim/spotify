@@ -62,6 +62,4 @@ class _MyScreenPageState extends State<MyScreenPage> {
           return HomePage(fileNames[index],);
         },
       ),
-    );
-  }
-}
+    );}}

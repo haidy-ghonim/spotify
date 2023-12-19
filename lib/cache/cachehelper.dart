@@ -39,5 +39,4 @@ class CacheDate {
   //delete item = > key
   static void deleteItem({required String key}) {
     sharedPreferences.remove(key);
-  }
-}
+  }}

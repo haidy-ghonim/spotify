@@ -54,6 +54,4 @@ class _HomePageState extends State<HomePage> {
             },
             icon: (isPlaying) ? Icon(Icons.pause) : Icon(Icons.play_arrow)),
       ),
-    );
-  }
-}
+    );}}
